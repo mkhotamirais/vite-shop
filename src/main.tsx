@@ -20,6 +20,7 @@ import V1ProductCreate from "./pages/v1-product/V1ProductCreate.tsx";
 import V1ProductUpdate from "./pages/v1-product/V1ProductUpdate.tsx";
 import V1User from "./pages/v1-user/V1User.tsx";
 import V1UserUpdate from "./pages/v1-user/V1UserUpdate.tsx";
+import { ThemeProvider } from "./components/providers/ThemeProvider.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -50,6 +51,8 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </StrictMode>
 );

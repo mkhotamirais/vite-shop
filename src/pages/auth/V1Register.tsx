@@ -10,6 +10,7 @@ import { url } from "@/lib/constants";
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterSchema } from "@/v1Schemas";
+import { Loader2 } from "lucide-react";
 
 type RegisterFormSchema = z.infer<typeof RegisterSchema>;
 
@@ -111,7 +112,8 @@ export default function V1Register() {
             )}
           />
           <Button disabled={pending} type="submit" className="w-full">
-            {pending ? "Loading.." : "Register"}
+            {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            Register
           </Button>
         </form>
         <div className="flex justify-center mt-4">

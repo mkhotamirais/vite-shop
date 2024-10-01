@@ -17,7 +17,7 @@ export default function V1User() {
     content = <Err>{errUsers}</Err>;
   } else {
     content = (
-      <div className="flex flex-col gap-1">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
         {users
           .filter((item) => item.email !== "ahmad@gmail.com")
           .map((item) => (
@@ -28,12 +28,12 @@ export default function V1User() {
   }
 
   return (
-    <div className="max-w-xl mx-auto">
+    <section className="py-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-lg font-semibold my-3">User List</h2>
+        <h2 className="text-lg font-semibold mb-3 text-primary">User List</h2>
       </div>
 
       {content}
-    </div>
+    </section>
   );
 }

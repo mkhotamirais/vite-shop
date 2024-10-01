@@ -10,7 +10,7 @@ export default function Header() {
         <div>
           <Logo />
         </div>
-        <nav className="flex gap-4 items-center">
+        <nav className="flex gap-3 items-center">
           <Navbar />
           <AuthV1Btn />
           <ModeToggle />

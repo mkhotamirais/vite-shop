@@ -21,7 +21,7 @@ export default function V1Tag() {
     content = (
       <>
         {tag.length > 0 ? (
-          <div className="flex flex-col gap-1">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
             {tag?.map((item) => (
               <V1TagList key={item._id} item={item} />
             ))}
@@ -34,14 +34,13 @@ export default function V1Tag() {
   }
 
   return (
-    <div className="max-w-xl mx-auto">
+    <div className="py-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-lg font-semibold my-3">Tag List</h2>
-        <Button size={"sm"} asChild>
+        <h2 className="text-lg font-semibold my-3 text-primary">Tag List</h2>
+        <Button asChild>
           <Link to="/tag-create">Add New</Link>
         </Button>
       </div>
-
       {content}
     </div>
   );

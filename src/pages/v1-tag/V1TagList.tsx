@@ -6,7 +6,7 @@ import { V1Categories } from "@/hooks/useV1";
 
 export default function V1TagList({ item }: { item: V1Categories }) {
   return (
-    <div className="group relative border p-2 rounded-lg overflow-hidden">
+    <div className="group relative border p-4 rounded-lg overflow-hidden">
       <div className="grid grid-cols-2">
         <div>{item.name}</div>
       </div>

@@ -10,6 +10,7 @@ import { url } from "@/lib/constants";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { LoginSchema } from "@/v1Schemas";
+import { Loader2 } from "lucide-react";
 
 type LoginFormSchema = z.infer<typeof LoginSchema>;
 
@@ -79,7 +80,8 @@ export default function V1Login() {
             )}
           />
           <Button disabled={pending} type="submit" className="w-full">
-            {pending ? "Loading.." : "Login"}
+            {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            Login
           </Button>
         </form>
         <div className="flex justify-center mt-4">

@@ -14,6 +14,7 @@ import { toast } from "sonner";
 import { url } from "@/lib/constants";
 import { useState } from "react";
 import { useV1, V1Categories } from "@/hooks/useV1";
+import { Loader2 } from "lucide-react";
 
 export default function V1CategoryDelDialog({ item }: { item: V1Categories }) {
   const [pending, setPending] = useState(false);
@@ -42,14 +43,17 @@ export default function V1CategoryDelDialog({ item }: { item: V1Categories }) {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader className="space-y-3">
-          <DialogTitle>Delete {item?.name}, are you sure?</DialogTitle>
+          <DialogTitle>
+            Delete <span className="text-primary italic">{item?.name}</span>, are you sure?
+          </DialogTitle>
           <DialogDescription>This action cannot be undone!</DialogDescription>
           <div className="space-x-1">
-            <Button disabled={pending} onClick={onDel} size="sm" variant="destructive">
-              {pending ? "Loading.." : "Delete"}
+            <Button disabled={pending} onClick={onDel} variant="destructive">
+              {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              Delete
             </Button>
             <DialogClose asChild>
-              <Button disabled={pending} size="sm" variant="outline">
+              <Button disabled={pending} variant="outline">
                 Cancel
               </Button>
             </DialogClose>

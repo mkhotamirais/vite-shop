@@ -33,15 +33,17 @@ export default function Navbar({ className }: { className?: string }) {
     <nav
       className={`${className} ml-0 sm:ml-6 ${
         navBtn ? "scale-y-100" : "scale-y-0"
-      } sm:scale-y-100 origin-top transition text-[0.9rem] fixed sm:static top-16 bg-inherit inset-x-0 p-3 sm:p-0 border-b rounded-b sm:border-none`}
+      } sm:scale-y-100 origin-top transition bg-background sm:bg-inherit text-[0.9rem] fixed sm:static top-16 inset-x-0 p-3 sm:p-0 border-b rounded-b sm:border-none`}
     >
-      <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+      <div className="flex flex-col sm:flex-row">
         {nav.map((item, i) => (
           <Link
             onClick={onNavClick}
             key={i}
             to={item.href}
-            className={`capitalize hover:text-gray-800 p-2 sm:p-0 hover:bg-muted sm:hover:bg-inherit rounded transition`}
+            className={`${
+              path1 === item.href.split("/")[1] ? "text-primary" : ""
+            } capitalize text-center border-b sm:border-none block hover:text-primary px-3 sm:px-4 py-3 sm:py-0 hover:bg-muted sm:hover:bg-inherit rounded transition`}
           >
             {item.label}
           </Link>
@@ -53,15 +55,13 @@ export default function Navbar({ className }: { className?: string }) {
 
 export const NavBtn = () => {
   const { nav, openNav, closeNav } = useBasic();
-  const { pathname } = useLocation();
-  const path1 = pathname.split("/")[1];
+  // const { pathname } = useLocation();
+  // const path1 = pathname.split("/")[1];
   const onClick = () => {
     if (nav) {
       closeNav();
     } else openNav();
   };
-
-  if (!path1) return null;
 
   return (
     <Button onClick={onClick} size={"icon"} variant={"ghost"} className="static sm:hidden">

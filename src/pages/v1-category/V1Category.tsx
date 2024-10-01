@@ -21,7 +21,7 @@ export default function V1Category() {
     content = (
       <>
         {cat.length > 0 ? (
-          <div className="flex flex-col gap-1">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
             {cat?.map((item) => (
               <V1CategoryList key={item._id} item={item} />
             ))}
@@ -34,15 +34,14 @@ export default function V1Category() {
   }
 
   return (
-    <div className="max-w-xl mx-auto">
-      <div className="flex justify-between items-center">
-        <h2 className="text-lg font-semibold my-3">Category List</h2>
-        <Button size={"sm"} asChild>
+    <section className="py-4">
+      <div className="flex justify-between items-center mb-2">
+        <h2 className="text-lg font-semibold my-3 text-primary">Category List</h2>
+        <Button asChild>
           <Link to="/category-create">Add New</Link>
         </Button>
       </div>
-
       {content}
-    </div>
+    </section>
   );
 }

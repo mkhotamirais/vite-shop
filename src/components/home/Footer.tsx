@@ -1,7 +1,33 @@
+import { FaEnvelope } from "react-icons/fa6";
+import { SiGithub, SiLinkedin } from "react-icons/si";
+import { Link } from "react-router-dom";
+
+const socialsMenu = [
+  { href: "https://github.com/mkhotamirais", icon: SiGithub },
+  { href: "https://www.linkedin.com/in/mkhotami-rais", icon: SiLinkedin },
+  { href: "mailto:tami01.job@gmail.com", icon: FaEnvelope },
+];
+
 export default function Footer() {
   return (
-    <header className="py-6 border-t">
-      <div className="container flex justify-center">Footer</div>
-    </header>
+    <footer className="py-6 border-t">
+      <div className="container">
+        <div className="flex flex-col md:flex-row justify-between gap-4 items-center">
+          <small className="text-muted-foreground">
+            &copy; {new Date().getFullYear()}{" "}
+            <Link to="https://tamionweb.my.id" className="text-primary hover:underline">
+              Tamionweb
+            </Link>
+          </small>
+          <div className="flex gap-4 sm:gap-5 items-center justify-center">
+            {socialsMenu.map((item, i) => (
+              <a key={i} title={item.href} href={item.href} target="_blank" rel="noopener noreferrer">
+                <item.icon className="size-5 text-primary" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }

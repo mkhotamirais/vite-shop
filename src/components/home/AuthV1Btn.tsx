@@ -49,8 +49,8 @@ export default function AuthV1Btn() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="" size={"sm"} variant={"link"}>
-          {me ? <User className="size-4" /> : <LogIn className="w-4 h-4" />}
+        <Button className="" size={"icon"} variant={"ghost"}>
+          {me ? <User className="size-4" /> : <LogIn className="size-5" />}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">{content}</DropdownMenuContent>

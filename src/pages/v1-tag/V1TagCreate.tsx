@@ -10,6 +10,7 @@ import axios from "axios";
 import { url } from "@/lib/constants";
 import { useNavigate } from "react-router-dom";
 import { TagSchema } from "@/v1Schemas";
+import { Loader2 } from "lucide-react";
 
 type CreateTagForm = z.infer<typeof TagSchema>;
 
@@ -37,8 +38,8 @@ export default function V1TagCreate() {
   };
 
   return (
-    <div className="max-w-xl mx-auto">
-      <h2 className="text-lg font-semibold my-3">Create Tag</h2>
+    <div className="max-w-xl mx-auto py-4">
+      <h2 className="text-lg font-semibold my-3 text-primary">Create Tag</h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
           <FormField
@@ -55,7 +56,8 @@ export default function V1TagCreate() {
             )}
           />
           <Button disabled={pending} type="submit">
-            {pending ? "Loading.." : "Submit"}
+            {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            Submit
           </Button>
         </form>
       </Form>

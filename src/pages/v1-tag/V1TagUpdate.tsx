@@ -12,6 +12,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Err, LoaderBounce } from "@/components/Wrapper";
 import { TagSchema } from "@/v1Schemas";
 import { useV1 } from "@/hooks/useV1";
+import { Loader2 } from "lucide-react";
 
 type CreateTagForm = z.infer<typeof TagSchema>;
 
@@ -77,7 +78,8 @@ export default function V1TagUpdate() {
             )}
           />
           <Button disabled={pending} type="submit">
-            {pending ? "Loading.." : "Submit"}
+            {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            Submit
           </Button>
         </form>
       </Form>
@@ -85,8 +87,8 @@ export default function V1TagUpdate() {
   }
 
   return (
-    <div className="max-w-xl mx-auto">
-      <h2 className="text-lg font-semibold my-3">Update Tag</h2>
+    <div className="max-w-xl mx-auto py-4">
+      <h2 className="text-lg font-semibold mb-2 text-primary">Update Tag</h2>
       {content}
     </div>
   );

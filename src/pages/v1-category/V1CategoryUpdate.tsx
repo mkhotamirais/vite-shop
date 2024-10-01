@@ -12,6 +12,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Err, LoaderBounce } from "@/components/Wrapper";
 import { useV1 } from "@/hooks/useV1";
 import { CategorySchema } from "@/v1Schemas";
+import { Loader2 } from "lucide-react";
 
 type CreateCategoryForm = z.infer<typeof CategorySchema>;
 
@@ -77,7 +78,8 @@ export default function V1CategoryUpdate() {
             )}
           />
           <Button disabled={pending} type="submit">
-            {pending ? "Loading.." : "Submit"}
+            {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            Submit
           </Button>
         </form>
       </Form>
@@ -85,8 +87,8 @@ export default function V1CategoryUpdate() {
   }
 
   return (
-    <div className="max-w-xl mx-auto">
-      <h2 className="text-lg font-semibold my-3">Update Category</h2>
+    <div className="max-w-xl mx-auto py-4">
+      <h2 className="text-lg font-semibold mb-2 text-primary">Update Category</h2>
       {content}
     </div>
   );

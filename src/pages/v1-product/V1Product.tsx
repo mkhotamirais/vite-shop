@@ -38,9 +38,9 @@ export default function V1Product() {
   }
 
   return (
-    <div className="mx-auto">
+    <div className="mx-auto py-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-lg font-semibold my-3">Product List</h2>
+        <h2 className="text-lg font-semibold mb-2 text-primary">Product List</h2>
         <div className="flex gap-1">
           <QueryReset />
           <Button size={"sm"} asChild>

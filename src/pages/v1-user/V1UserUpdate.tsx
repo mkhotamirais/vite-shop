@@ -14,6 +14,7 @@ import axios from "axios";
 import { url } from "@/lib/constants";
 import { toast } from "sonner";
 import { UpdateUserSchema } from "@/v1Schemas";
+import { Loader2 } from "lucide-react";
 
 type UpdateUserForm = z.infer<typeof UpdateUserSchema>;
 
@@ -154,15 +155,16 @@ export default function V1UserUpdate() {
             )}
           />
           <Button disabled={pending} type="submit">
-            {pending ? "Loading.." : "Save"}
+            {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            Update
           </Button>
         </form>
       </Form>
     );
 
   return (
-    <div className="max-w-xl mx-auto">
-      <h2 className="text-lg font-semibold my-3">Update User</h2>
+    <div className="max-w-xl mx-auto py-4">
+      <h2 className="text-lg font-semibold mb-2 text-primary">Update User</h2>
       {content}
     </div>
   );
